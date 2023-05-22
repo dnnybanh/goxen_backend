@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/dnnybanh/goxen_backend/pkg/models"
+	"github.com/dnnybanh/goxen_backend/models"
 )
 
 type Mailchimp struct {
@@ -21,7 +21,7 @@ type Subscriber struct {
 	LastName     string `json:"merge_fields,omitempty"`
 }
 
-func (m *Mailchimp) SubscribeUser(user models.User) error {
+func (m *Mailchimp) SubscribeUser(user *models.User) error {
 	// Create a new subscriber
 	subscriber := &Subscriber{
 		EmailAddress: user.Email,

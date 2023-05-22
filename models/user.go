@@ -8,9 +8,10 @@ import (
 
 type User struct {
 	gorm.Model
-	Email     string `gorm:"type:varchar(100);unique_index"`
-	FirstName string `gorm:"size:100"`
-	LastName  string `gorm:"size:100"`
+	Email     string `json:"email" gorm:"type:varchar(100);unique_index"`
+	FirstName string `json:"firstName" gorm:"size:100"`
+	LastName  string `json:"lastName" gorm:"size:100"`
+	UserType  string `json:"userType" gorm:"size:100"`
 }
 
 // BeforeCreate is a GORM hook that will be triggered every time a new user is stored in the database
